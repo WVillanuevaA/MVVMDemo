@@ -1,4 +1,5 @@
 ﻿using System;
+using MVVMDemo.View;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace MVVMDemo
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new TaskView();
         }
 
         protected override void OnStart()

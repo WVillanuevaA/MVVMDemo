@@ -12,6 +12,19 @@ namespace MVVMDemo.ViewModel
     public class TaskViewModel : ViewModelBase
     {
 
+        int id;
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                if (id != value)
+                {
+                    id = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         string title;
         public string Title
@@ -26,7 +39,20 @@ namespace MVVMDemo.ViewModel
                 }
             }
         }
-
+        string description;
+        public string Description
+        {
+            get { return description; }
+            set
+            {
+                if (description != value)
+                {
+                    description = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        
         ObservableCollection<TaskModel> tasks;
         public ObservableCollection<TaskModel> Tasks
         {
@@ -43,8 +69,8 @@ namespace MVVMDemo.ViewModel
 
         private List<TaskModel> taskTemp;
 
-        ICommand Get { set; get; }
-        ICommand Save { set; get; }
+        public ICommand Get { set; get; }
+        public ICommand Save { set; get; }
 
         public TaskViewModel()
         {
@@ -54,8 +80,9 @@ namespace MVVMDemo.ViewModel
             {
                 taskTemp.Add(new TaskModel {
                 
+                Id=this.Id,
                 Title=this.Title,
-                Description=this.title
+                Description=this.Description,
                 });
 
             });
